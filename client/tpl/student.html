@@ -7,7 +7,10 @@
 
     <ul>
         {{#each toutlemonde}}
-            <li>{{name}}</li>
+            <li class="name">
+                {{name}}
+                <button type="button" class="delete_eleve">&times;</button>
+            </li>
         {{/each}}
     </ul>
 </template>
