@@ -10,4 +10,16 @@ Template.student.helpers({
     },
 });
 
+Template.student.events({
+    "click #add_eleve, submit .add_form": function (event, template) {
+
+        event.preventDefault();
+        eleve_name = template.find("#nom_eleve").value;
+
+        eleves.insert({
+          name: eleve_name
+        });
+    }
+});
+
 

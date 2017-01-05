@@ -1,7 +1,13 @@
 <template name="student">
+
+    <form class="add_form">
+        <input type="text" id="nom_eleve"  placeholder="Indiquez votre nom">
+        <button type="button" id="add_eleve">Ajouter</button>
+    </form>
+
     <ul>
         {{#each toutlemonde}}
-            <li>{{name}} - {{age}} ans</li>
+            <li>{{name}}</li>
         {{/each}}
     </ul>
 </template>
