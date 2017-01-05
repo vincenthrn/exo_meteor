@@ -16,16 +16,18 @@ Template.student.helpers({
 * Ajoute un nouvel élève
 * */
 Template.student.events({
-    "click #add_eleve, submit .add_form": function (event, template) {
+    "submit .add_form": function (event, template) {
 
         event.preventDefault();
         eleve_name = template.find("#nom_eleve").value;
 
-        if(eleve_name.length !== 0){
+        if(eleve_name.trim().length !== 0){
             eleves.insert({
                 name: eleve_name
             });
         }
+
+        template.find("#nom_eleve").value = '';
     }
 });
 

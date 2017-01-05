@@ -1,16 +1,18 @@
 <template name="student">
 
-    <form class="add_form">
-        <input type="text" id="nom_eleve"  placeholder="Indiquez votre nom">
-        <button type="button" id="add_eleve">Ajouter</button>
-    </form>
-
-    <ul>
-        {{#each toutlemonde}}
-            <li class="name">
-                {{name}}
-                <button type="button" class="delete_eleve">&times;</button>
-            </li>
-        {{/each}}
-    </ul>
+    <div class="list">
+        <form class="add_form add">
+            <input type="text" id="nom_eleve" class="todo-search-field" placeholder="Indiquez votre nom">
+        </form>
+        <div class="list-content">
+            <ul>
+                {{#each toutlemonde}}
+                    <li class="name">
+                        {{name}}
+                        <button type="button" class="delete_eleve btn btn-danger"><span class="fui-cross"></span></button>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </template>
