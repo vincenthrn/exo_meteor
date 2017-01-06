@@ -1,18 +1,19 @@
 /* CSS declarations go here */
-body{
+body {
     background-color: aliceblue;
 }
 
-div.list{
+div.list {
     width: 500px;
 }
-div.center{
+
+div.center {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-form.add{
+form.add {
     position: relative;
     background: #7bc8d6;
     background-size: 16px 16px;
@@ -21,7 +22,7 @@ form.add{
     padding: 19px 25px 20px;
 }
 
-#task_name::before{
+#task_name::before {
     position: absolute;
     font-family: 'Flat-UI-Icons';
     content: "\e630";
@@ -33,7 +34,7 @@ form.add{
     margin: -0.5em 0 0 -1em;
 }
 
-p.item{
+p.item {
     margin: 0;
 }
 
@@ -51,11 +52,11 @@ li.name_item {
     justify-content: space-between;
 }
 
-button.delete_task{
+button.delete_task {
     align-self: flex-start;
 }
 
-div.list-content{
+div.list-content {
     padding-top: 1px;
     overflow: hidden;
 }
@@ -73,19 +74,20 @@ div.list-content{
     transition: .25s;
 }
 
-li.name_edit_item{
+li.name_edit_item {
     background: #496582;
 }
 
-.list-content .name_item{
+.list-content .name_item {
     color: #ffffff;
     font-size: 17px;
     margin: 1px 0 3px;
 }
 
-.todo-search-field{
+.todo-search-field {
     font-size: 30px;
 }
+
 .todo-edit-field {
     background: none;
     border: none;
@@ -100,12 +102,15 @@ li.name_edit_item{
     outline: none;
 }
 
-li.nothing{
+li.nothing {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #fff;
     font-weight: light;
     background: #acafba;
+}
 
+label.checkbox {
+    align-self: flex-start;
 }
