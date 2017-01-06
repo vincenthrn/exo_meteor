@@ -1,43 +1,97 @@
 import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
 import './main.html';
 
 /*
- * Liste les élèves
+ * Liste les tasks
  * */
-Template.student.helpers({
-    toutlemonde() {
-        return eleves.find();
-    },
+Template.list.helpers({
+    allTasks() {
+        return tasks.find();
+    }
 });
 
 /*
-* Ajoute un nouvel élève
+* Ajoute une task
 * */
-Template.student.events({
+Template.list.events({
     "submit .add_form": function (event, template) {
 
         event.preventDefault();
-        eleve_name = template.find("#nom_eleve").value;
+        task_name = template.find("#task_name").value;
 
-        if(eleve_name.trim().length !== 0){
-            eleves.insert({
-                name: eleve_name
+        if(task_name.trim().length !== 0){
+            let task_id = tasks.insert({
+                name: task_name,
+                editing:false
             });
         }
 
-        template.find("#nom_eleve").value = '';
+        template.find("#task_name").value = '';
     }
 });
 
 /*
- * Supprime un élève
+ * Supprime une task
  * */
-Template.student.events({
-    "click .delete_eleve": function (event, template) {
+Template.list.events({
+    "click .delete_task": function (event, template) {
 
-        event.preventDefault();
-        eleves.remove(this._id);
+        tasks.remove(this._id);
+
     }
 });
+
+
+/*
+ * Modifie une task
+ * */
+Template.list.events({
+    "dblclick .name_item": function (event, template) {
+
+        tasks.update(this._id, {
+            $set: { editing: true }
+        });
+    },
+
+    "keypress input[class='todo-edit-field']": function (event, template) {
+
+        console.log(event.keyCode);
+        if(event.keyCode == 13){
+            let value = event.currentTarget.value;
+            if(value.trim().length !== 0){
+                tasks.update(this._id, {
+                    $set: { name: event.currentTarget.value, editing:false }
+                });
+            }
+        }
+    }
+
+});
+
+/*
+ * Focus de l'input d'edit
+ * */
+Template.editItem.rendered = function() {
+    this.$('input').focus()
+};
+
+/*
+ * Modifie une task
+ * */
+Template.editItem.events({
+    "keypress input[class='todo-edit-field']": function (event, template) {
+
+        console.log(event.keyCode);
+        if(event.keyCode == 13){
+            let value = event.currentTarget.value;
+            if(value.trim().length !== 0){
+                tasks.update(this._id, {
+                    $set: { name: event.currentTarget.value, editing:false }
+                });
+            }
+        }
+    }
+
+});
+
+

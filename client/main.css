@@ -1,4 +1,11 @@
 /* CSS declarations go here */
+body{
+    background-color: aliceblue;
+}
+
+div.list{
+    width: 500px;
+}
 div.center{
     display: flex;
     align-items: center;
@@ -7,14 +14,14 @@ div.center{
 
 form.add{
     position: relative;
-    background: #1abc9c;
+    background: #7bc8d6;
     background-size: 16px 16px;
     border-radius: 6px 6px 0 0;
     color: #34495e;
     padding: 19px 25px 20px;
 }
 
-#nom_eleve::before{
+#task_name::before{
     position: absolute;
     font-family: 'Flat-UI-Icons';
     content: "\e630";
@@ -26,6 +33,10 @@ form.add{
     margin: -0.5em 0 0 -1em;
 }
 
+p.item{
+    margin: 0;
+}
+
 .list ul {
     background-color: #2c3e50;
     margin: 0;
@@ -34,17 +45,15 @@ form.add{
     border-radius: 0 0 6px 6px;
 }
 
-li.name {
+li.name_item {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-button.delete_eleve{
+button.delete_task{
     align-self: flex-start;
 }
-
-
 
 div.list-content{
     padding-top: 1px;
@@ -64,8 +73,39 @@ div.list-content{
     transition: .25s;
 }
 
-.list-content .name{
+li.name_edit_item{
+    background: #496582;
+}
+
+.list-content .name_item{
     color: #ffffff;
     font-size: 17px;
     margin: 1px 0 3px;
+}
+
+.todo-search-field{
+    font-size: 30px;
+}
+.todo-edit-field {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 23px;
+    padding: 5px 0;
+    text-indent: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+li.nothing{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-weight: light;
+    background: #acafba;
+
 }

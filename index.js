@@ -1,1 +1,1 @@
-eleves = new Mongo.Collection("eleves");
+tasks = new Mongo.Collection("tasks");
