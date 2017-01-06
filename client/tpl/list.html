@@ -1,0 +1,26 @@
+<template name="list">
+    <div class="list">
+        <form class="add_form add">
+            <input type="text" id="task_name" class="todo-search-field" placeholder="Ajoutez une tâche">
+        </form>
+        <div class="list-content">
+            <ul>
+                {{#each allTasks}}
+                    {{#if editing}}
+                        {{> editItem}}
+                    {{else}}
+                        <li class="name_item">
+                            <p class="item">{{name}}</p>
+                            <button type="button" class="delete_task btn btn-danger"><span class="fui-cross"></span>
+                            </button>
+                        </li>
+                    {{/if}}
+                {{else}}
+                    <li class="nothing">
+                        <p class="item">Nothing to do ! Yay ! :)</p>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</template>
